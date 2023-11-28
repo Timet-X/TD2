@@ -1,10 +1,5 @@
 let ws = new WebSocket("wss://websocket-p75n.onrender.com/:443");
 
-let controllTD = document.querySelector('.controllTD') ;
-controllTD.addEventListener('input', (event) => {
-  ws.send(JSON.stringify({ 'slider1': controllTD.value / 100 }));
-}, false);
-
 let controllTD2 = document.querySelector('.controllTD2') ;
 controllTD2.addEventListener('input', (event) => {
   ws.send(JSON.stringify({ 'slider2': controllTD2.value / 100 }));
