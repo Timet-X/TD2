@@ -5,11 +5,6 @@ controllTD.addEventListener('input', (event) => {
   ws.send(JSON.stringify({ 'slider1': controllTD.value / 100 }));
 }, false);
 
-let controllTD2 = document.querySelector('.controllTD2') ;
-controllTD2.addEventListener('input2', (event) => {
-  ws.send(JSON.stringify({ 'slider2': controllTD2.value / 100 }));
-}, false);
-
 ws.addEventListener('open', (event) => {
   console.log('Socket connection open!');
   // alert('Successfully connected to socket server 🎉');
