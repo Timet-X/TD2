@@ -6,7 +6,7 @@ controllTD.addEventListener('input', (event) => {
 }, false);
 
 let controllTD2 = document.querySelector('.controllTD2') ;
-controllTD2.addEventListener('input2', (event) => {
+controllTD2.addEventListener('input', (event) => {
   ws.send(JSON.stringify({ 'slider2': controllTD2.value / 100 }));
 }, false);
 
