@@ -2,7 +2,7 @@ let ws = new WebSocket("wss://websocket-gtms.onrender.com/:443");
 
 let controllTD = document.querySelector('.controllTD') ;
 controllTD.addEventListener('input', (event) => {
-  ws.send(JSON.stringify({ 'slider1': 'asasasasasasas' }));
+  ws.send(JSON.stringify({ 'slider1': controllTD.value / 100 }));
 }, false);
 
 let controllTD2 = document.querySelector('.controllTD2') ;
