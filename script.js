@@ -12,12 +12,7 @@ controllTD2.addEventListener('input', (event) => {
 
 let controllTD3 = document.querySelector('.controllTD3') ;
 controllTD.addEventListener('input', (event) => {
-  ws.send(JSON.stringify({ 'slider1': controllTD.value }));
-}, false);
-
-let controllTD2 = document.querySelector('.controllTD2') ;
-controllTD2.addEventListener('input', (event) => {
-  ws.send(JSON.stringify({ 'slider2': controllTD2.value / 100 }));
+  ws.send(JSON.stringify({ 'text': controllTD3.value }));
 }, false);
 
 ws.addEventListener('open', (event) => {
