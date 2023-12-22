@@ -11,7 +11,6 @@ controllTD3.addEventListener('keypress', (event) => {
 
 ws.addEventListener('open', (event) => {
   console.log('Socket connection open!');
-  ws.send('pong');
 });
 
 ws.addEventListener('error', (error) => {
