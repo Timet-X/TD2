@@ -1,20 +1,15 @@
 let ws = new WebSocket("wss://websocket-1.onrender.com/:443");
 
-let controllTD = document.querySelector('.controllTD');
-let controllTD2 = document.querySelector('.controllTD2');
-let controllTD3 = document.querySelector('.controllTD3');
-let submitButton = document.querySelector('#submitButton');
+let controllTD3 = document.querySelector('.controllTD3'); // 保留文本输入框的引用
+let submitButton = document.querySelector('#submitButton'); // 引用提交按钮
 
+// 提交按钮点击事件
 submitButton.addEventListener('click', (event) => {
   event.preventDefault(); // 防止表单默认提交行为
-  ws.send(JSON.stringify({ 
-    'slider1': controllTD.value / 100, 
-    'slider2': controllTD2.value / 100, 
-    'text': controllTD3.value 
-  }));
+  ws.send(JSON.stringify({ 'text': controllTD3.value })); // 发送文本输入框的值
 }, false);
 
-// 其他 WebSocket 事件监听器保持不变...
+// WebSocket 的其他事件监听器...
 
 ws.addEventListener('open', (event) => {
   console.log('Socket connection open!');
