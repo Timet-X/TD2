@@ -15,6 +15,22 @@ controllTD3.addEventListener('input', (event) => {
   ws.send(JSON.stringify({ 'text': controllTD3.value }));
 }, false);
 
+let submitButton = document.querySelector('#submitButton');
+
+submitButton.addEventListener('click', (event) => {
+  event.preventDefault(); // 阻止表单默认提交行为
+
+  // 获取当前的输入值
+  let data = {
+    slider1: controllTD.value / 100,
+    slider2: controllTD2.value / 100,
+    text: controllTD3.value
+  };
+
+  // 将数据发送到 WebSocket 服务器
+  ws.send(JSON.stringify(data));
+});
+
 ws.addEventListener('open', (event) => {
   console.log('Socket connection open!');
   // alert('Successfully connected to socket server 🎉');
