@@ -1,35 +1,20 @@
 let ws = new WebSocket("wss://websocket-1.onrender.com/:443");
 
-let controllTD = document.querySelector('.controllTD') ;
-controllTD.addEventListener('input', (event) => {
-  ws.send(JSON.stringify({ 'slider1': controllTD.value / 100 }));
-}, false);
-
-let controllTD2 = document.querySelector('.controllTD2') ;
-controllTD2.addEventListener('input', (event) => {
-  ws.send(JSON.stringify({ 'slider2': controllTD2.value / 100 }));
-}, false);
-
-let controllTD3 = document.querySelector('.controllTD3') ;
-controllTD3.addEventListener('input', (event) => {
-  ws.send(JSON.stringify({ 'text': controllTD3.value }));
-}, false);
-
+let controllTD = document.querySelector('.controllTD');
+let controllTD2 = document.querySelector('.controllTD2');
+let controllTD3 = document.querySelector('.controllTD3');
 let submitButton = document.querySelector('#submitButton');
 
 submitButton.addEventListener('click', (event) => {
-  event.preventDefault(); // 阻止表单默认提交行为
+  event.preventDefault(); // 防止表单默认提交行为
+  ws.send(JSON.stringify({ 
+    'slider1': controllTD.value / 100, 
+    'slider2': controllTD2.value / 100, 
+    'text': controllTD3.value 
+  }));
+}, false);
 
-  // 获取当前的输入值
-  let data = {
-    slider1: controllTD.value / 100,
-    slider2: controllTD2.value / 100,
-    text: controllTD3.value
-  };
-
-  // 将数据发送到 WebSocket 服务器
-  ws.send(JSON.stringify(data));
-});
+// 其他 WebSocket 事件监听器保持不变...
 
 ws.addEventListener('open', (event) => {
   console.log('Socket connection open!');
