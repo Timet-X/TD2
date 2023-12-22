@@ -9,35 +9,33 @@
   --font-family-header: "HK Grotesk";
 }
 
-
-/* Basic page style resets */
-* {
-  box-sizing: border-box;
-}
-[hidden] {
-  display: none !important;
-}
-
-/* Import fonts */
-@font-face {
-  font-family: HK Grotesk;
-  src: url("https://cdn.glitch.me/605e2a51-d45f-4d87-a285-9410ad350515%2FHKGrotesk-Regular.otf?v=1603136326027")
-    format("opentype");
-}
-@font-face {
-  font-family: HK Grotesk;
-  font-weight: bold;
-  src: url("https://cdn.glitch.me/605e2a51-d45f-4d87-a285-9410ad350515%2FHKGrotesk-Bold.otf?v=1603136323437")
-    format("opentype");
-}
-
 body {
   font-family: HK Grotesk;
   background-color: var(--color-bg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
 }
 
-
-/* Subheading */
 h2 {
-  color: #2800FF;
+  color: var(--color-primary);
+  margin-bottom: 20px;
+  font-size: 24px;
 }
+
+.controllTD3 {
+  font-size: 16px;
+  padding: 10px;
+  border: 2px solid var(--color-primary);
+  border-radius: 8px;
+  width: 300px; /* 调整宽度 */
+  outline: none;
+}
+
+.controllTD3:focus {
+  border-color: #2800FF; /* 聚焦时边框颜色 */
+}
+
