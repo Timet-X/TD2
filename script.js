@@ -1,8 +1,11 @@
 let ws = new WebSocket("wss://websocket-1.onrender.com/:443");
 
-let controllTD3 = document.querySelector('.controllTD3') ;
-controllTD3.addEventListener('input', (event) => {
-  ws.send(JSON.stringify({ 'text': controllTD3.value }));
+let controllTD3 = document.querySelector('.controllTD3');
+controllTD3.addEventListener('keypress', (event) => {
+  if (event.key === 'Enter') {
+    ws.send(JSON.stringify({ 'text': controllTD3.value }));
+    controllTD3.value = ''; // 清空文本框
+  }
 }, false);
 
 ws.addEventListener('open', (event) => {
